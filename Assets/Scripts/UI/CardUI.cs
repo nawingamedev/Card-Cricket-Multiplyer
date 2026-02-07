@@ -5,6 +5,8 @@ using TMPro;
 public class CardUI : MonoBehaviour
 {
     public Image art;
+    public GameObject isSelected;
+    public GameObject isSelectable;
     public TMP_Text nameText;
     public TMP_Text powerText;
 
@@ -16,6 +18,8 @@ public class CardUI : MonoBehaviour
         nameText.text = data.cardName;
         powerText.text = data.power.ToString();
         art.color = data.color;
+        isSelected.SetActive(false);
+        isSelectable.SetActive(false);
         //art.sprite = data.artwork;
     }
 

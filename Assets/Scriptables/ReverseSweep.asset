@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ReverseSweep
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: ReverseSweep
   artwork: {fileID: 0}
+  color: {r: 0.95686275, g: 0.827451, b: 0.36862746, a: 1}

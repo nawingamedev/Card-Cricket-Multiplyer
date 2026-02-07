@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Sweep
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: Sweep
   artwork: {fileID: 0}
+  color: {r: 0.84313726, g: 0.14901961, b: 0.23921569, a: 1}

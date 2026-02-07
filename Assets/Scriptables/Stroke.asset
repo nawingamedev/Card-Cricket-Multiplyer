@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Stroke
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: Stoke
   artwork: {fileID: 0}
+  color: {r: 0.043137256, g: 0.23529412, b: 0.28627452, a: 1}

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: LegSpin
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: LegSpin
   artwork: {fileID: 0}
+  color: {r: 0.96862745, g: 0.49803922, b: 0, a: 1}

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Yoker
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: Yorker
   artwork: {fileID: 0}
+  color: {r: 0.105882354, g: 0.6, b: 0.54509807, a: 1}

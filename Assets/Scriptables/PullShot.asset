@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PullShot
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: Pull Shot
   artwork: {fileID: 0}
+  color: {r: 1, g: 0.7647059, b: 0, a: 1}

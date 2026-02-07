@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: StraightDrive
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: Straight Drive
   artwork: {fileID: 0}
+  color: {r: 0.16862746, g: 0.1764706, b: 0.25882354, a: 1}

@@ -8,6 +8,8 @@ public class GameStateManager : NetworkBehaviour
     public static GameStateManager Instance;
 
     public List<CardData> deck;
+    public ulong player1Id;
+    public ulong player2Id;
 
     public NetworkVariable<GamePhase> Phase = new(GamePhase.WaitingForPlayers);
     public NetworkVariable<float> timer = new();
@@ -19,29 +21,54 @@ public class GameStateManager : NetworkBehaviour
 
     float turnTime = 15f;
 
-    void Awake() => Instance = this;
+    public delegate void TimerUpdate(float time);
+    public static TimerUpdate timerUpdate;
+    public delegate void StateUpdate(GamePhase game);
+    public static StateUpdate stateUpdate;
+    public delegate void ScoreUpdate(int playerScore,int enemyScore);
+    public static ScoreUpdate scoreUpdate;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public override void OnNetworkSpawn()
     {
-        if (IsServer)
+        Phase.OnValueChanged += OnPhaseChanged;
+        timer.OnValueChanged += OnTimeChange;
+        if (IsServer){
             NetworkManager.Singleton.OnClientConnectedCallback += OnPlayerConnected;
+        }
     }
-
+    void OnTimeChange(float oldTime,float newtime)
+    {
+        timerUpdate?.Invoke(newtime);
+    }
     void OnPhaseChanged(GamePhase oldP, GamePhase newP)
     {
         if (!IsClient) return;
+        stateUpdate?.Invoke(newP);
 
         var ui = FindObjectOfType<UIStateManager>();
 
         if (newP == GamePhase.Selecting)
             ui.SetState(UIState.Gameplay);
-        else if (newP == GamePhase.Revealing)
-            ui.SetState(UIState.Revealing);
         else if (newP == GamePhase.RoundEnd)
             ui.SetState(UIState.Result);
     }
     void OnPlayerConnected(ulong id)
     {
+        if (player1Id == 0) player1Id = id;
+        else player2Id = id;
+
         if (NetworkManager.Singleton.ConnectedClients.Count == 2)
             StartGame();
     }
@@ -98,7 +125,7 @@ public class GameStateManager : NetworkBehaviour
             if (deck[a].power > deck[b].power) p1Wins++;
             else if (deck[b].power > deck[a].power) p2Wins++;
         }
-
+        
         Debug.Log($"Round Result P1:{p1Wins} P2:{p2Wins}");
 
         Phase.Value = GamePhase.RoundEnd;
@@ -111,9 +138,9 @@ public class GameStateManager : NetworkBehaviour
     {
         ulong id = rpcParams.Receive.SenderClientId;
 
-        if (id == 0 && p1Selected.Count < 3)
+        if (id == player1Id && p1Selected.Count < 3)
             p1Selected.Add(cardIndex);
-        else if (id == 1 && p2Selected.Count < 3)
+        else if (id == player2Id && p2Selected.Count < 3)
             p2Selected.Add(cardIndex);
     }
 }

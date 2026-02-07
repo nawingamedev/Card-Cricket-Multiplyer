@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: InSwing
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: InSwing
   artwork: {fileID: 0}
+  color: {r: 0.9019608, g: 0.22352941, b: 0.27450982, a: 1}

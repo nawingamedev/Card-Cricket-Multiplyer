@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb5ad510ca4842de92902779a66f9bb, type: 3}
   m_Name: AwaySwing
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  power: 0
-  cardName: 
+  power: 1
+  cardName: Away Swing
   artwork: {fileID: 0}
+  color: {r: 0.2901961, g: 0.5647059, b: 0.8862745, a: 1}

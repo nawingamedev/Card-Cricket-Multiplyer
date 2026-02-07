@@ -20,7 +20,7 @@ public class UIStateManager : MonoBehaviour
 
         panelNetwork.SetActive(state == UIState.NetworkSetup);
         panelGameplay.SetActive(state == UIState.Gameplay);
-        panelReveal.SetActive(state == UIState.Revealing);
+        //panelReveal.SetActive(state == UIState.Revealing);
         panelResult.SetActive(state == UIState.Result);
     }
 }
@@ -28,6 +28,6 @@ public enum UIState
 {
     NetworkSetup,
     Gameplay,
-    Revealing,
+    //Revealing,
     Result
 }

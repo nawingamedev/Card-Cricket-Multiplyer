@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: CoverDrive
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   power: 0
-  cardName: 
+  cardName: Cover Drive
   artwork: {fileID: 0}
+  color: {r: 0, g: 0.7058824, b: 0.84705883, a: 1}
